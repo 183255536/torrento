@@ -11,8 +11,10 @@ class Session implements IQbitTorrentSession {
 
   @override
   Future<http.Response> get(String url, {Map<String, String> headers}) async {
+    Uri uri = Uri(path: url);
+
     /// headers receives as per the headers arg is sent to the API>
-    http.Response response = await http.get(url, headers: sessionHeaders);
+    http.Response response = await http.get(uri, headers: sessionHeaders);
     _updateCookie(response);
     log('status : ${response.statusCode} , response body : ' + response.body);
     return response;

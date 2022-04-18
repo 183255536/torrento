@@ -24,7 +24,7 @@ class _UTorrentControllerImpl implements UTorrentController {
 
   Map<String, String> actions;
 
-  _UTorrentControllerImpl({this.serverIp, @required this.serverPort})
+  _UTorrentControllerImpl({@required this.serverIp, @required this.serverPort})
       : baseUrl = 'http://$serverIp:$serverPort/gui/' {
     assert(serverIp != null);
     assert(serverPort != null);
@@ -92,7 +92,7 @@ class _UTorrentControllerImpl implements UTorrentController {
     return response;
   }
 
-  Future<http.StreamedResponse> addTorrentFile({String filePath}) async {
+  Future<http.StreamedResponse> addTorrentFile({@required String filePath}) async {
     assert(filePath != null);
 
     String url = '$baseUrl?action=add-file';
